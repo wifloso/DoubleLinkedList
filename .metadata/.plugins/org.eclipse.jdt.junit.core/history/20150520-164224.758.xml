@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestDLL" project="PrDoublyLinkedList" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="Test.TestDLL" time="0.0">
+    <testcase name="ListaVacia" classname="Test.TestDLL" time="0.0"/>
+    <testcase name="test" classname="Test.TestDLL" time="0.0"/>
+  </testsuite>
+</testrun>

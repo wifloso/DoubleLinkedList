@@ -1,0 +1,83 @@
+package Lista;
+
+public class ListaDLL {
+	
+	private NodoDLL first;
+	private NodoDLL last;
+	
+	public ListaDLL(){
+		first=null;
+		last=null;
+	}
+	public NodoDLL first(){
+		return first;
+	}
+	public NodoDLL last(){
+		return last;
+	}
+	public boolean isEmpty(){
+		if(first==null&&last==null){
+			return true;
+		}
+		return false;
+	}
+	public void insertAfter(NodoDLL nodo, NodoDLL newNodo){
+		if(last==nodo||isEmpty()){
+			insertEnd(newNodo);
+		}else{
+			newNodo.setNext(nodo.getNext());
+			nodo.getNext().setPrev(newNodo);
+			newNodo.setPrev(nodo);
+			nodo.setNext(newNodo);
+		}
+	}
+	public void insertBefore(NodoDLL nodo, NodoDLL newNodo){
+		if(first==nodo||isEmpty()){
+			insertBeginning(newNodo);
+		}else{
+			newNodo.setPrev(nodo.getPrev());
+			nodo.getNext().setPrev(newNodo);
+			newNodo.setPrev(newNodo);
+			nodo.setNext(newNodo);
+		}
+	}
+	public void insertBeginning(NodoDLL newNodo){
+		if(isEmpty()){
+			first=newNodo;
+			last=newNodo;
+		}else{
+			newNodo.setNext(first);
+			first.setPrev(newNodo);
+			newNodo.setPrev(null);
+			first=newNodo;
+		}
+	}
+	public void insertEnd(NodoDLL newNodo){
+		if(isEmpty()){
+			first=newNodo;
+			last=newNodo;
+		}else{
+			newNodo.setPrev(last);
+			last.setNext(newNodo);
+			newNodo.setNext(null);
+			last=newNodo;
+		}
+		
+	}
+	public void removing(NodoDLL nodo){
+		if(last==first){
+			first=null;
+			last=null;
+		}else if(nodo==last){
+			last=last.getPrev();
+			last.setNext(null);
+		}else if(nodo==first){
+			first=first.getNext();
+			first.setPrev(null);
+		}else{
+			nodo.getPrev().setNext(nodo.getNext());
+			nodo.getNext().setPrev(nodo.getPrev());
+			nodo=null;
+		}
+	}
+}

@@ -1,0 +1,33 @@
+package Test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import Lista.*;
+
+public class TestDLL  {
+	
+	private ListaDLL lista= new ListaDLL();
+	
+	@Before
+	public void antes(){
+		lista=new ListaDLL();
+	}
+	
+	@Test
+	public void ListaVacia(){
+		assertEquals(null,lista.first());
+		assertEquals(null,lista.last());
+		assertEquals(true,lista.isEmpty());
+	}
+
+	@Test
+	public void test() {
+		NodoDLL nodo= new NodoDLL(null, null, 1);
+		lista.insertBeginning(nodo);
+		assertEquals(1, lista.last().getDato());
+	}
+
+}
