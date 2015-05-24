@@ -113,6 +113,14 @@ public class TestDLL  {
 		assertEquals(1, lista.first().getInfo());
 		assertEquals(3, lista.last().getInfo());
 	}
+	@Test
+	public void CambiarNodo(){
+		for(int i=1;i<11;i++){
+			lista.insertEnd(new NodoDLL(null,null,i));
+		}
+		lista.first().getNext().setInfo(0);
+		assertEquals(0, lista.first().getNext().getInfo());
+	}
 }
 	
 

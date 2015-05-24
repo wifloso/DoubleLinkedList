@@ -25,7 +25,7 @@ public void setNext(NodoDLL newNext){
 	next=newNext;
 }
 public void setInfo(int newDato){
-	Info= newDato;
+	Info=newDato;
 }
 
 
